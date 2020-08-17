@@ -2,60 +2,60 @@
 #include <string>
 #include "patch_valid.h"
 #include "fileop.h"
-using namespace std;
+
 
 void patch_valid() {
 	const char* patch_en = "zone/redacted/patch_redacted.ff";
-	const char* patch_un = "zone/redacted/patch_redacted_unabled.ff";
-	string user_in;
-	while (true) {
+	const char* patch_un = "zone/redacted/patch_redacted_old.ff";
+	std::string user_in;
+	
 		if (file_ex(patch_en) != 0) {
-			cout << "カスタム武器MODを無効にしますか？　Y/N" << endl;
-			cin >> user_in;
+			std::cout << "カスタム武器MODを無効にしますか？　Y/N" << std::endl;
+			std::cin >> user_in;
 			if (user_in == "y" || user_in == "Y") {
 				if (file_rename(patch_en, patch_un) != 0) {
-					cout << "成功しました" << endl;
-					break;
+					std::cout << "成功しました" << std::endl;
+					
 				}
 				else {
-					cout << "失敗しました" << endl;
-					break;
+					std::cout << "失敗しました" << std::endl;
+					
 				}
 			}
 			else if (user_in == "N" || user_in == "n") {
-				cout << "操作をキャンセルしました" << endl;
-				break;
+				std::cout << "操作をキャンセルしました" << std::endl;
+				
 			}
 			else {
-				cout << "やり直してください" << endl;
+				std::cout << "やり直してください" << std::endl;
 			}
 		}
 		else if (file_ex(patch_un) != 0) {
-			cout << "カスタム武器MODを有効にしますか？　Y/N" << endl;
-			cin >> user_in;
+			std::cout << "カスタム武器MODを有効にしますか？　Y/N" << std::endl;
+			std::cin >> user_in;
 			if (user_in == "y" || user_in == "Y") {
 				if (file_rename(patch_un, patch_en) != 0) {
-					cout << "成功しました" << endl;
-					break;
+					std::cout << "成功しました" << std::endl;
+					
 				}
 				else {
-					cout << "失敗しました" << endl;
-					break;
+					std::cout << "失敗しました" << std::endl;
+					
 				}
 			}
 			else if (user_in == "N" || user_in == "n") {
-				cout << "操作をキャンセルしました" << endl;
-				break;
+				std::cout << "操作をキャンセルしました" << std::endl;
+				
 			}
 			else {
-				cout << "やり直してください" << endl;
+				std::cout << "やり直してください" << std::endl;
 			}
 		}
 		else {
-			cout << "EROOR! Redacted MODファイルが存在しません" << endl;
-			break;
+			std::cout << "EROOR! Redacted MODファイルが存在しません" << std::endl;
+			
 		}
-	}
-
+	
+	std::cout << std::endl;
 	getchar();
 }

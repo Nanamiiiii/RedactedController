@@ -4,22 +4,22 @@
 #include <vector>
 
 #include "getfiles.h"
-using namespace std;
 
-vector<string> getDemoFiles(string dir_name) {
+
+std::vector<std::string> getDemoFiles(std::string dir_name) {
 
 	HANDLE hFind;
 	WIN32_FIND_DATA win32fd;
-	vector<string> file_names;
+	std::vector<std::string> file_names;
 
 	
-	string extension[1] = { "demo" };
+	std::string extension[1] = { "demo" };
 	
 
 
 	for (int i = 0; i < 1; i++) {
 
-		string search_name = dir_name + '/' + "*." + extension[i];
+		std::string search_name = dir_name + '/' + "*." + extension[i];
 		hFind = FindFirstFile(search_name.c_str() , &win32fd);
 
 		if (hFind == INVALID_HANDLE_VALUE) {
